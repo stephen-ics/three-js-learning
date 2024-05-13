@@ -6,6 +6,8 @@ import { styles } from '../styles'
 import { services } from '../constants'
 import { fadeIn, textVariant } from '../utils/motion'
 
+import { SectionWrapper } from '../hoc'
+
 const ServiceCard = ({ index, title, icon }) => {
   return (
     <Tilt className="xs:w-[250px] w-full">
@@ -33,8 +35,8 @@ const ServiceCard = ({ index, title, icon }) => {
 
 const About = () => {
   return (
-    <div>
-      <motion.div>
+    <>
+      <motion.div variants={textVariant()} className='py-4'>
         <p className={styles.sectionSubText}>Introduction</p>
         <h2 className={styles.sectionHeadText}>Overview</h2>
       </motion.div>
@@ -52,8 +54,8 @@ const About = () => {
 
         }
       </div>
-    </div>
+    </>
   )
 }
 
-export default About
+export default SectionWrapper(About, "about")
